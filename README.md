@@ -8,19 +8,31 @@ In our case, we want to tether internet from a smartphone to a KOOMPI Local Cont
 
 The GrAP then share internet with other ChildAP. The ChildAP provide WiFi Internet to users.
 
-The graph below explain the mini concept.
+## Internet Privider
+
+We will try with Smart 4G cost 8 USD per month for 100 GB data.  
+
+## Flow chart of the set up
 
 ```mermaid
-graph LR
-    A[Smart 4G] -->|Tether| B(Content Server)
-    B --> C{Grandmaster AP}
+graph TD
+    A[4G Internet] -->|Tether| B(Content Server)
+    B --> |SameLocation| C{Grandmaster AP}
     C -->|AP-#1| D[Office #1]
-    D -->|AP-#3| E[Office #2]
-    C -->|AP-#2| F[Office #3]
-    F --> E
-  
+    D -->|AP-#2| E[Office #2]
+    C --> |AP-#N| G(office #N)
+    E -->|AP-#3| F[Office #3]
+    
 ``` 
-
 ## The Site
 
-The distant from GrAP to Office
+The distant from;
+- GAP to Office #1 is same location
+- Office #1 - Office #2 = 30m
+- Office #2 - Office #3 = 50m
+
+The whole campus is around 120 m^2.  
+
+
+
+
